@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="icon" type="x-icon" href="snake-icon.png" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Snake Game</title>
+    <link rel="stylesheet" href="style.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+    <link
+      
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+   
+    <section>
+      <div class="content">
+        <div id="scoreboard">
+          <div style="display: flex">
+            <div class="scale">
+            <nav>
+            <div class="collapse" id="navbarToggleExternalContent" >
+              
+              <div class="bg-dark p-4 container-nav">
+                <h5 class="text-white h4">
+                  
+                  <div id="settings-container" class="settings-container">
+                  <button id="easy-mode" class="game-btn">
+                    Easy
+                    <div class="tooltip-container">
+                      <span class="tooltip-icon">?</span>
+                      <div class="tooltip-content">Snake speed is slow</div>
+                    </div>
+                  </button>
+                  <button id="normal-mode" class="game-btn">
+                    Normal
+                    <div class="tooltip-container">
+                      <span class="tooltip-icon">?</span>
+                      <div class="tooltip-content">Snake speed is normal</div>
+                    </div>
+                  </button>
+                  <div style="display: flex">
+                    <button id="hard-mode" class="game-btn">
+                      Hard
+                      <div class="tooltip-container">
+                        <span class="tooltip-icon">?</span>
+                        <div class="tooltip-content">Snake speed is fast</div>
+                      </div>
+                    </button>
+                    <button id="natural-mode" class="game-btn">
+                      Natural
+                      <div class="tooltip-container">
+                        <span class="tooltip-icon">?</span>
+                        <div class="tooltip-content">
+                          Snake speed gradually increases over time
+                        </div>
+                        </button>
+                      </div>
+                      <div style="display: flex">
+                        <label class="game-checkbox">
+                          <input type="checkbox" id="growth-mode-checkbox" /> Growth Mode
+                          <div class="tooltip-container">
+                            <span class="tooltip-icon">?</span>
+                            <div class="tooltip-content">
+                              Snake size increases in both axes, making it bigger.
+                            </div>
+                          </div>
+                        </label>
+                        </button>
+                        
+                    <label class="game-checkbox">
+                      <input type="checkbox" id="self-collision-checkbox" />No Self Collision
+                      <div class="tooltip-container">
+                        <span class="tooltip-icon">?</span>
+                        <div class="tooltip-content">
+                          Checking this will prevent the snake from dying on self-collision.
+                        </div>
+                      </div>
+                    </label>
+                    </div>
+                    <div style="display: flex">
+                  
+                    <label class="game-checkbox">
+                      <input type="checkbox" id="walls-checkbox" /> Border Death
+                      <div class="tooltip-container">
+                        <span class="tooltip-icon">?</span>
+                        <div class="tooltip-content">
+                          Player loses when touching the border
+                        </div>
+                      </div>
+                    </label>
+                    <label class="game-checkbox" style="margin-left: 5%">
+                      <input type="checkbox" id="maze-checkbox" /> Maze Walls
+                      <div class="tooltip-container">
+                        <span class="tooltip-icon">?</span>
+                        <div class="tooltip-content">
+                          Generates random Maze walls in the game
+                        </div>
+                      </div>
+                    </label>
+                  </div>
+              </div>
+            </li>
+            
+            </h5>
+               
+              </div>
+            </div>
+            <nav class="navbar navbar-dark bg-dark">
+              <div class="container-fluid">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class=""><li class="dropdown">
+                    <a style="font-style: none;" href="#" class="dropbtn"><img
+                    class="settings-icon"
+                    src="settings_42dp_B7B7B7_FILL0_wght400_GRAD0_opsz40.png"
+                    alt=""
+                    width="35px"
+                    height="35px"
+                  /><span style="font-size: 16px; font-weight: 300; color: white; text-decoration: none;"><b style="margin-bottom: 10px;">Game Options</b></span></a></span>
+                </button>
+              </div>
+            </nav>
+              
+          </div>
+        </div>
+          <br />
+          
+            <br />
+            <div style="display: flex">
+              <img
+                style="transform: translateX(-20px); margin-right: -20px"
+                src="sports_score_42dp_B7B7B7_FILL0_wght400_GRAD0_opsz40.png"
+                alt=""
+                width="50px"
+                height="50px"
+              />
+
+              <p id="current-score" style="color: white" >Score: 0</p>
+             
+              <p id="highest-score" style="color: white; margin-left: 10%;" >Highest Score: 0</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+      <br />
+      <div class="game-container">
+        <canvas id="gameCanvas" width="400" height="400"></canvas>
+        <div id="game-controls">
+
+          <button id="pause-button" class="game-btn">Pause</button>
+          <button id="tips-button" class="game-btn">Tips</button>
+          <button id="restart-button" class="game-btn">Restart</button>
+          <div class="mobile-controls">
+            <button class="mobile-ctrl" id="up-button">&uarr;</button>
+            <div class="flex-btn">
+              <button class="mobile-ctrl" id="left-button">&larr;</button>
+              <button class="mobile-ctrl" id="right-button">&rarr;</button>
+            </div>
+
+            <button class="mobile-ctrl" id="down-button">&darr;</button>
+          </div>
+        </div>
+      </div>
+      <div id="tips-popup" class="tips-popup">
+        <p>To <b>Start</b> press any arrow key</p>
+        <p>Move Right: &rarr;</p>
+        <p>Move Left: &larr;</p>
+        <p>Move Up: &uarr;</p>
+        <p>Move Down: &darr;</p>
+        <p>Blue dot: adds <b>1</b> point</p>
+        <p>Rainbow dot: adds <b>2</b> points</p>
+        <p>Enable Border Death to make the game harder</p>
+        <p>
+          Click or hover on
+          <span style="font-family: 'Times New Roman', Times, serif"
+            ><b>?</b></span
+          >
+          to see the tooltip
+        </p>
+        <p>Enabling Maze walls will add random maze walls to the game</p>
+        <p>Natural mode increases the speed of the snake gradually little by little</p>
+        <p>Growth mode increases the snakes size gradually little by little</p>
+      </div>
+  
+    <div id="notification" class="notification"></div>
+    <div id="notification2" class="notification2" style="font-weight: bold;">Please choose a game difficulty . Default difficulty is Normal</div>
+        </div>
+    <script src="script.js"></script>
+  </body>
+</html>
