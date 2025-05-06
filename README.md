@@ -4,6 +4,7 @@
 [![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)](https://www.w3.org/Style/CSS/)
 [![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)](https://html.spec.whatwg.org/)
 
+Playable here 🔗
 ## Overview
 
 The Snake Game is a classic arcade game where the player controls a snake that grows in length as it consumes food. The objective is to eat as much food as possible without colliding with the walls or the snake's own body.
