@@ -11,7 +11,7 @@ The Snake Game is a classic arcade game where the player controls a snake that g
 ## Features
 
 - Multiple difficulty levels: Easy, Normal, Hard, and Natural modes.
-- Game options including Growth Mode and No Self Collision.
+- Game options including Growth Mode, No Self Collision, Maze mode and Border death mode.
 - Responsive design for both desktop and mobile devices.
 
 ## Installation
